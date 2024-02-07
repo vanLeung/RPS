@@ -47,10 +47,10 @@ let compImg = document.getElementById("computer-choice");
 
 function displayChoice(choice, image) {
   if (choice == "player-choice") {
-    playerImg.innerHTML = image;
+    playerImg.src = image;
     console.log("EE");
   } else if (choice == "computer-choice") {
-    compImg.innerHTML = image;
+    compImg.src = image;
     console.log("work");
   }
 }
@@ -70,7 +70,23 @@ function getCompChoice() {
   }
 }
 
-function getResult() {}
+function getResult(pChoice, cChoice) {
+  if (pChoice == cChoice) {
+    return "tie";
+  } else if (pChoice == "scissors" && cChoice == "rock") {
+    return "computer";
+  } else if (pChoice == "scissors" && cChoice == "paper") {
+    return "player";
+  } else if (pChoice == "rock" && cChoice == "paper") {
+    return "computer";
+  } else if (pChoice == "rock" && cChoice == "scissors") {
+    return "player";
+  } else if (pChoice == "paper" && cChoice == "scissors") {
+    return "computer";
+  } else if (pChoice == "paper" && cChoice == "rock") {
+    return "player";
+  }
+}
 
 function showResult() {}
 
