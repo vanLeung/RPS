@@ -48,15 +48,13 @@ let compImg = document.getElementById("computer-choice");
 function displayChoice(choice, image) {
   if (choice == "player-choice") {
     playerImg.src = image;
-    console.log("EE");
   } else if (choice == "computer-choice") {
     compImg.src = image;
-    console.log("work");
   }
 }
 
 function getCompChoice() {
-  let num = Math.floor(Math.random());
+  let num = Math.floor(Math.random() * 100);
 
   if (num >= 66) {
     displayChoice("computer-choice", "images/rock.png");
@@ -88,6 +86,21 @@ function getResult(pChoice, cChoice) {
   }
 }
 
-function showResult() {}
+function showResult(winner) {
+  if (winner == "tie") {
+    buttonsArea.innerHTML = "Tie";
+  } else {
+    buttonsArea.innerHTML = winner + " won";
+  }
+}
 
-function updateScore(winner) {}
+function updateScore(winner) {
+  if (winner == "player") {
+    pScore += 1;
+    playerScoreEl.innerHTML = pScore;
+  } else if (winner == "computer") {
+    cScore += 1;
+    computerScoreEl.innerHTML = cScore;
+  }
+}
+
